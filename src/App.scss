@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700|Montserrat:300,400,900');
 
+$smartphones: "only screen and (max-width: 479px)";
+$tablets: "only screen and (max-width: 959px)";
+$laptops: "only screen and (min-width: 1200px) and (max-width: 1600px)";
+
 $black: #222;
 $blue: #000DC6;
 $green: #01C600;
@@ -212,4 +216,51 @@ p {
   background-position: bottom;
   background-size: 6px 1px;
   background-repeat: repeat-x;
+}
+
+@media #{$tablets} {
+  body {
+    font-size: 11px;
+  }
+  .App {
+    margin: 2em;
+    .App-header {
+      .header-wrapper {
+        flex-direction: column;
+        h1 {
+          margin-bottom: 1em;
+        }
+      }
+    }
+    .main {
+      .bio {
+        flex-direction: column;
+        .bio-text {
+          width: unset;
+        }
+      }
+      .projects {
+        flex-direction: column;
+        .projects-text {
+          width: unset;
+        }
+      }
+      .text {
+        height: unset;
+        column-count: unset;
+      }
+      .ref {
+        width: unset;
+        .ref-wrapper {
+          padding: unset;
+          .references {
+            flex-direction: column;
+            .reference {
+              width: unset;
+            }
+          }
+        }
+      }
+    }
+  }
 }
