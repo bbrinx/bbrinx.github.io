@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700|Montserrat:300,400,900');
+
+$black: #222;
+$blue: #000DC6;
+$green: #01C600;
+$width-left: 58%;
+$width-right: 42%;
+$font-mono: 'Roboto Mono', monospace;
+$font-sans: 'Roboto', sans-serif;
+
+body {
+  font-size: 16px;
+}
+h1 {
+  margin: 0;
+  font-family: $font-sans;
+  font-weight: 100;
+}
+h2 {
+  margin: 0;
+  font-family: $font-sans;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+h3 {
+  margin: 0;
+  font-family: $font-sans;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+p,li {
+  font-family: $font-sans;
+  font-weight: 100;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+  }
+}
+a {
+  text-decoration: underline;
+  color: inherit;
+}
+p {
+  margin: 1.5em 0;
+  letter-spacing: 0.15em;
+}
+
+.App {
+  margin: 5em 5em;
+  .App-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 80px;
+    .header-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+      width: $width-left;
+      ul {
+        display: flex;
+        flex-direction: row;
+        li {
+          padding-right: 25px;
+          &:last-child {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .main {
+    .header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 3em 0 2em 0;
+      height: 30px;
+      align-items: flex-end;
+    }
+    .text {
+      column-count: 3;
+      column-gap: 3em;
+      column-fill: auto;
+      p {
+        white-space: pre-line;
+        text-align: justify;
+        word-wrap: break-word;
+        word-break: normal;
+        hyphens: auto;
+        line-height: 1.5em;
+        opacity: 1;
+        transition: color 0.5s ease-in;
+        &:first-child {
+          margin-top: 0;
+        }
+        .footnote {
+          transition: color 0.5s ease-in;
+          font-weight: 900;
+        }
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+    .ref {
+      width: $width-right;
+      .ref-wrapper {
+        padding-left: 5em;
+      }
+      .references {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .reference {
+          padding-right: 2em;
+          display: flex;
+          width: 41%;
+          margin-bottom: 1em;
+          p {
+            font-family: $font-mono;
+            font-size: 11px;
+            font-weight: 200;
+            margin-top: 0;
+          }
+          .number {
+            font-weight: 900;
+            padding-right: 1em;
+          }
+          .title {
+            font-weight: 400;
+          }
+        }
+      }
+    }
+    .hidden {
+      p, span {
+        color: #fff !important;
+        .tldr {
+          color: $black !important;
+        }
+      }
+    }
+    .bio{
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 3em;
+      .tldr-toggle {
+        text-decoration: underline;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .bio-text {
+        width: $width-left;
+        .text {
+          height: 800px;
+          .footnote {
+            color: $blue;
+          }
+        }
+      }
+      .ref {
+        .reference {
+          a,p {
+            color: $blue;
+          }
+        }
+      }
+    }
+    .projects {
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 3em;
+      .projects-text {
+        width: $width-left;
+        .text {
+          height: 450px;
+          .footnote {
+            color: $green;
+          }
+        }
+      }
+      .ref {
+        .reference {
+          a, p {
+            color: $green;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.dashed-line {
+  background-image: linear-gradient(to right, black 33%, rgba(255,255,255,0) 0%);
+  background-position: bottom;
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+}
