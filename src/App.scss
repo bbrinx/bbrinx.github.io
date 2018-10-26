@@ -286,6 +286,65 @@ p {
   background-repeat: repeat-x;
 }
 
+@media #{$tablets} {
+  body {
+    font-size: 14px;
+  }
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: unset;
+  }
+  .content-wrapper {
+    .App-header {
+      height: unset;
+      .header-wrapper {
+        padding: 1em 0;
+        flex-direction: column;
+        h1 {
+          margin-bottom: 1em;
+        }
+      }
+    }
+    .main {
+      .header {
+        width: unset;
+      }
+      .bio {
+        flex-direction: column;
+        .bio-text {
+          width: unset;
+        }
+      }
+      .projects {
+        flex-direction: column;
+        .projects-text {
+          width: unset;
+          .header {
+            width: 50%;
+          }
+        }
+      }
+      .text {
+        height: unset !important;
+      }
+      .ref {
+        width: unset;
+        .ref-wrapper {
+          padding: unset;
+          .references {
+            flex-direction: row;
+            .reference {
+              width: 30%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media #{$mobile}, #{$mobile_iX}, #{$mobile_i} {
   body {
     font-size: 11px;
@@ -345,61 +404,3 @@ p {
   }
 }
 
-@media #{$tablets} {
-  body {
-    font-size: 14px;
-  }
-  .desktop {
-    display: none;
-  }
-  .mobile {
-    display: unset;
-  }
-  .content-wrapper {
-    .App-header {
-      height: unset;
-      .header-wrapper {
-        padding: 1em 0;
-        flex-direction: column;
-        h1 {
-          margin-bottom: 1em;
-        }
-      }
-    }
-    .main {
-      .header {
-        width: unset;
-      }
-      .bio {
-        flex-direction: column;
-        .bio-text {
-          width: unset;
-        }
-      }
-      .projects {
-        flex-direction: column;
-        .projects-text {
-          width: unset;
-          .header {
-            width: 50%;
-          }
-        }
-      }
-      .text {
-        height: unset !important;
-      }
-      .ref {
-        width: unset;
-        .ref-wrapper {
-          padding: unset;
-          .references {
-            flex-direction: row;
-            .reference {
-              width: 30%;
-            }
-          }
-        }
-      }
-    }
-  }
-}
