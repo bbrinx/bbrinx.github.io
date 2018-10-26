@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700|Montserrat:300,400,900');
 
-$mobile: "(min-width: 320px) and (max-width: 736px)";
+$mobile: "(min-width: 320px) and (max-width: 750px)";
+$mobile_i: "only screen and (min-device-width : 375px) and (max-device-width : 736px)";
 $mobile_iX: "(min-width : 375px) and (max-width : 812px) and (-webkit-device-pixel-ratio : 3)";
 $tablets: "(min-width: 768px) and (max-width: 1366px)";
 
@@ -16,7 +17,9 @@ body {
   font-size: 16px;
   text-size-adjust: none;
   text-rendering: optimizeLegibility; 
-  font-synthesis: none
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 h1 {
   margin: 0;
@@ -283,7 +286,7 @@ p {
   background-repeat: repeat-x;
 }
 
-@media #{$mobile}, #{$mobile_iX} {
+@media #{$mobile}, #{$mobile_iX}, #{$mobile_i} {
   body {
     font-size: 11px;
   }
