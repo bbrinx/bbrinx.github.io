@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Switch from "react-switch";
+import smoothscroll from 'smoothscroll-polyfill';
 import 'normalize.css';
 import './App.scss';
+
 
 class App extends Component {
   constructor() {
@@ -9,6 +11,7 @@ class App extends Component {
     this.state = {
       tldr: false
     }
+    this.header = React.createRef();
     this.bio1 = React.createRef();
     this.bio2 = React.createRef();
     this.bio3 = React.createRef();
@@ -19,12 +22,15 @@ class App extends Component {
     this.projects3 = React.createRef();
   }
 
+
   tldr() {
     this.setState({tldr: !this.state.tldr})
   }
 
+
   scroll(ref) {
-    ref.current.scrollIntoView({behavior: 'smooth'})
+    smoothscroll.polyfill();
+    ref.current.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'})
   }
 
   render() {
@@ -34,7 +40,7 @@ class App extends Component {
         <header className="App-header dashed-line">
           <div className="header-wrapper">
             <h1>Jonathan Derin</h1>
-            <ul>
+            <ul className="contact">
               <li><a href="mailto:info@jonathanderin.de">info@jonathanderin.de</a></li>
               <li><a href="https://github.com/bbrinx">github</a></li>
               <li><a href="https://www.linkedin.com/in/jonathan-derin">linkedin</a></li>
@@ -43,28 +49,28 @@ class App extends Component {
         </header>
 
         <main className="main dashed-line">
+          <div className="header" ref={this.header}>
+            <h2>Biography</h2>
+            <div className="tldr-wrapper">
+              <Switch
+                onChange={() => {this.tldr()}}
+                offColor='#222'
+                onColor='#222'
+                onHandleColor='#fff'
+                offHandleColor='#fff'
+                checked={this.state.tldr}
+                id="normal-switch"
+                uncheckedIcon={false}
+                checkedIcon={false}
+                activeBoxShadow='#fff'
+                height={20}
+                width={45}
+              />
+              <h2 className="tldr-toggle" onClick={() => {this.tldr()}}>TL;DR</h2>
+            </div>
+          </div>
           <div className="bio">
             <div className="bio-text">
-              <div className="header">
-                <h2>Biography</h2>
-                <div className="tldr-wrapper">
-                  <Switch
-                    onChange={() => {this.tldr()}}
-                    offColor='#222'
-                    onColor='#222'
-                    onHandleColor='#fff'
-                    offHandleColor='#fff'
-                    checked={this.state.tldr}
-                    id="normal-switch"
-                    uncheckedIcon={false}
-                    checkedIcon={false}
-                    activeBoxShadow='#fff'
-                    height={20}
-                    width={45}
-                  />
-                  <h2 className="tldr-toggle" onClick={() => {this.tldr()}}>TL;DR</h2>
-                </div>
-              </div>
               <div className={`text ${this.state.tldr ? 'hidden' : ''}`}>
                 <p>
                   After graduating and earning some money working in social media marketing I wanted to start studying computer science. 
@@ -152,7 +158,8 @@ class App extends Component {
           <div className="projects">
             <div className="projects-text">
               <div className="header">
-                <h2>Selection of Projects</h2>
+                <h2 className="desktop">Selection of Projects</h2>
+                <h2 className="mobile">Projects</h2>
               </div>
               <div className={`text ${this.state.tldr ? 'hidden' : ''}`}>
                 <p>

@@ -60,6 +60,13 @@ p {
   letter-spacing: 0.15em;
 }
 
+.mobile {
+  display: none;
+}
+.desktop {
+  display: unset;
+}
+
 .App {
   margin: 5em 5em;
   .App-header {
@@ -74,7 +81,7 @@ p {
       align-items: baseline;
       justify-content: space-between;
       width: $width-left;
-      ul {
+      .contact {
         display: flex;
         flex-direction: row;
         li {
@@ -82,6 +89,9 @@ p {
           &:last-child {
             padding-right: 0;
           }
+        }
+        a {
+          text-decoration: underline;
         }
       }
     }
@@ -95,6 +105,23 @@ p {
       padding: 3em 0 2em 0;
       height: 30px;
       align-items: flex-end;
+      width: $width-left;
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+      .tldr-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .tldr-toggle {
+          padding-left: 1em;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
     }
     .text {
       column-count: 3;
@@ -132,6 +159,10 @@ p {
       width: $width-right;
       .ref-wrapper {
         padding-left: 5em;
+      }
+      .header {
+        width: 100%;
+        z-index: unset;
       }
       .references {
         display: flex;
@@ -171,17 +202,6 @@ p {
       display: flex;
       flex-direction: row;
       padding-bottom: 3em;
-      .tldr-wrapper {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        .tldr-toggle {
-          padding-left: 1em;
-          &:hover {
-            cursor: pointer;
-          }
-        }
-      }
       .bio-text {
         width: $width-left;
         .text {
@@ -243,7 +263,15 @@ p {
   }
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
 
+.sticky + .main {
+  padding-top: calc(5em + 30px);
+}
 .dashed-line {
   background-image: linear-gradient(to right, black 33%, rgba(255,255,255,0) 0%);
   background-position: bottom;
@@ -254,6 +282,12 @@ p {
 @media #{$tablets} {
   body {
     font-size: 11px;
+  }
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: unset;
   }
   .App {
     margin: 2em;
@@ -266,6 +300,9 @@ p {
       }
     }
     .main {
+      .header {
+        width: unset;
+      }
       .bio {
         flex-direction: column;
         .bio-text {
@@ -276,10 +313,13 @@ p {
         flex-direction: column;
         .projects-text {
           width: unset;
+          .header {
+            width: 50%;
+          }
         }
       }
       .text {
-        height: unset;
+        height: unset !important;
         column-count: unset;
       }
       .ref {
