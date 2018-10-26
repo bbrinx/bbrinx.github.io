@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Switch from "react-switch";
 import 'normalize.css';
 import './App.scss';
 
@@ -46,12 +47,28 @@ class App extends Component {
             <div className="bio-text">
               <div className="header">
                 <h2>Biography</h2>
-                <h2 className="tldr-toggle" onClick={() => {this.tldr()}}>TL;DR</h2>
+                <div className="tldr-wrapper">
+                  <Switch
+                    onChange={() => {this.tldr()}}
+                    offColor='#222'
+                    onColor='#222'
+                    onHandleColor='#fff'
+                    offHandleColor='#fff'
+                    checked={this.state.tldr}
+                    id="normal-switch"
+                    uncheckedIcon={false}
+                    checkedIcon={false}
+                    activeBoxShadow='#fff'
+                    height={20}
+                    width={45}
+                  />
+                  <h2 className="tldr-toggle" onClick={() => {this.tldr()}}>TL;DR</h2>
+                </div>
               </div>
               <div className={`text ${this.state.tldr ? 'hidden' : ''}`}>
                 <p>
                   After graduating and earning some money working in social media marketing I wanted to start studying computer science. 
-                  To be sure I was on the right path, I completed an <span className="tldr">internship</span>as a <span className="tldr">web developer</span> <span onClick={() => {this.scroll(this.bio1)}} className="footnote">[1]</span>. 
+                  To be sure I was on the right path, I completed an <span className="tldr">internship</span> as a <span className="tldr">web developer</span> <span onClick={() => {this.scroll(this.bio1)}} className="footnote">[1]</span>. 
                   I created websites for clients, Wordpress templates and optimized existing websites in respect of <span className="tldr">usability, design and SEO</span>.
                 </p>
                 <p>
@@ -90,7 +107,7 @@ class App extends Component {
                     <p>
                       Mar 2015 - Jun 2015 <br/>
                       <span className="title">Pjunger Design / Tübingen</span><br/>
-                      Web Dev Indern
+                      Web Development Intern
                     </p>
                   </div>
                   <div className="reference">

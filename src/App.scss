@@ -5,8 +5,8 @@ $tablets: "only screen and (max-width: 959px)";
 $laptops: "only screen and (min-width: 1200px) and (max-width: 1600px)";
 
 $black: #222;
-$blue: #000DC6;
-$green: #01C600;
+$color1: #000DC6;
+$color2: #E80052;
 $width-left: 58%;
 $width-right: 42%;
 $font-mono: 'Roboto Mono', monospace;
@@ -33,7 +33,7 @@ h2 {
 }
 h3 {
   margin: 0;
-  font-family: $font-sans;
+  font-family: $font-mono;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 1em;
@@ -52,7 +52,7 @@ ul {
   }
 }
 a {
-  text-decoration: underline;
+  text-decoration: none;
   color: inherit;
 }
 p {
@@ -109,15 +109,22 @@ p {
         line-height: 1.5em;
         opacity: 1;
         transition: color 0.5s ease-in;
+        &::before {
+          content: '> ';
+          font-weight: 900;
+        }
         &:first-child {
           margin-top: 0;
         }
         .footnote {
-          transition: color 0.5s ease-in;
+          transition: color 1s ease-in;
           font-weight: 900;
         }
         a {
           text-decoration: none;
+        }
+        span {
+          transition: color 0.5s ease-in;
         }
       }
     }
@@ -131,15 +138,16 @@ p {
         flex-direction: row;
         flex-wrap: wrap;
         .reference {
-          padding-right: 2em;
+          padding-right: 1em;
           display: flex;
-          width: 41%;
+          width: 45%;
           margin-bottom: 1em;
           p {
             font-family: $font-mono;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 200;
             margin-top: 0;
+            line-height: 1.5em;
           }
           .number {
             font-weight: 900;
@@ -153,9 +161,9 @@ p {
     }
     .hidden {
       p, span {
-        color: #fff !important;
+        color: rgb(216, 216, 216) !important;
         .tldr {
-          color: $black !important;
+          color: #000 !important;
         }
       }
     }
@@ -163,10 +171,15 @@ p {
       display: flex;
       flex-direction: row;
       padding-bottom: 3em;
-      .tldr-toggle {
-        text-decoration: underline;
-        &:hover {
-          cursor: pointer;
+      .tldr-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .tldr-toggle {
+          padding-left: 1em;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
       .bio-text {
@@ -174,14 +187,25 @@ p {
         .text {
           height: 800px;
           .footnote {
-            color: $blue;
+            color: $color1;
           }
         }
       }
       .ref {
+        .header {
+          h3 {
+            color: $color1;
+          }
+        }
         .reference {
           a,p {
-            color: $blue;
+            color: $color1;
+            a, p {
+              text-decoration: none;
+            }
+          }
+          a:hover {
+            text-decoration: underline;
           }
         }
       }
@@ -195,14 +219,23 @@ p {
         .text {
           height: 450px;
           .footnote {
-            color: $green;
+            color: $color2;
           }
         }
       }
       .ref {
+        .header {
+          h3 {
+            color: $color2;
+          }
+        }
         .reference {
           a, p {
-            color: $green;
+            color: $color2;
+            text-decoration: none;
+          }
+          a:hover {
+            text-decoration: underline;
           }
         }
       }
