@@ -5,6 +5,7 @@ $mobile_i: "only screen and (min-device-width : 375px) and (max-device-width : 7
 $mobile_iX: "(min-width : 375px) and (max-width : 812px) and (-webkit-device-pixel-ratio : 3)";
 $tablets: "(min-width: 768px) and (max-width: 1366px)";
 
+$color-bg: #fff;
 $black: #222;
 $color1: #000DC6;
 $color2: #E80052;
@@ -13,6 +14,9 @@ $width-right: 42%;
 $font-mono: 'Roboto Mono', monospace;
 $font-sans: 'Roboto', sans-serif;
 
+html {
+  background-color: $color-bg;
+}
 body {
   font-size: 16px;
   text-size-adjust: none;
@@ -116,7 +120,7 @@ p {
       position: sticky;
       position: -webkit-sticky;
       top: 0;
-      background: #fff;
+      background-color: $color-bg;
       z-index: 100;
       .tldr-wrapper {
         display: flex;
@@ -285,7 +289,6 @@ p {
   background-size: 6px 1px;
   background-repeat: repeat-x;
 }
-
 @media #{$tablets} {
   body {
     font-size: 14px;

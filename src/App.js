@@ -30,7 +30,7 @@ class App extends Component {
 
   scroll(ref) {
     smoothscroll.polyfill();
-    ref.current.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'})
+    window.scrollBy({top: ref.current.offsetTop - 120, left: 0, behavior: 'smooth'})
   }
 
   render() {
