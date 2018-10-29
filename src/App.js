@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import Switch from "react-switch";
 import smoothscroll from 'smoothscroll-polyfill';
+import ReactGA from 'react-ga';
 import 'normalize.css';
 import './App.scss';
 
+
+function initializeReactGA() {
+  ReactGA.initialize('UA-88626373-1');
+  ReactGA.pageview('/homepage');
+}
 
 class App extends Component {
   constructor() {
@@ -21,7 +27,6 @@ class App extends Component {
     this.projects2 = React.createRef();
     this.projects3 = React.createRef();
   }
-
 
   tldr() {
     this.setState({tldr: !this.state.tldr})
@@ -91,12 +96,12 @@ class App extends Component {
                     For the last months I worked on a new version of the platform, including <span className="tldr">implementing React</span> as a frontend framework to a Django backend and <span className="tldr">changing the database structure</span>.
                   </p>
                   <p>
-                    During my last two semesters I worked as a <span className="tldr">full stack developer</span> at the <span className="tldr">Berlin</span> startup <span className="tldr">Foodly</span><span onClick={() => {this.scroll(this.bio5)}} className="footnote">[5]</span>. 
+                    During my last two semesters I worked as a <span className="tldr">full stack developer</span> at the <span className="tldr">Berlin</span> startup <span className="tldr">Foodly</span> <span onClick={() => {this.scroll(this.bio5)}} className="footnote">[5]</span>. 
                     There I was responsible for building Foodly’s web application with <span className="tldr">Meteor, React, Node.js and MongoDB</span>. 
                     I implemented new featueres and prototyped an iOS mobile app version using <span className="tldr">React Native</span>.
                   </p>
                   <p>
-                    I <span className="tldr">graduated in 2018</span> with the grade "very good", obtaining a <span className="tldr">bachelor of science</span>. 
+                    I <span className="tldr">graduated in 2018</span> with the highest mark, obtaining a <span className="tldr">bachelor of science</span>. 
                     My final thesis was focused on natural language processing techniques, analyzing the effect of the European Refugee Crisis on German media. 
                   </p>
                 </div>

@@ -178,11 +178,15 @@ p {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: space-between;
         .reference {
           padding-right: 1em;
           display: flex;
-          width: 45%;
+          width: 48%;
           margin-bottom: 1em;
+          &:nth-child(even) {
+            padding-right: 0;
+          }
           p {
             font-family: $font-mono;
             font-size: 12px;
