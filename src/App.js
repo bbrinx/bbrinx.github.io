@@ -6,11 +6,6 @@ import 'normalize.css';
 import './App.scss';
 
 
-function initializeReactGA() {
-  ReactGA.initialize('UA-88626373-1');
-  ReactGA.pageview('/homepage');
-}
-
 class App extends Component {
   constructor() {
     super()
@@ -26,6 +21,11 @@ class App extends Component {
     this.projects1 = React.createRef();
     this.projects2 = React.createRef();
     this.projects3 = React.createRef();
+  }
+
+  initializeReactGA() {
+    ReactGA.initialize('UA-88626373-1');
+    ReactGA.pageview('/homepage');
   }
 
   tldr() {
@@ -49,6 +49,7 @@ class App extends Component {
                 <li><a href="mailto:info@jonathanderin.de">info@jonathanderin.de</a></li>
                 <li><a href="https://github.com/bbrinx">github</a></li>
                 <li><a href="https://www.linkedin.com/in/jonathan-derin">linkedin</a></li>
+                <li><a href={process.env.PUBLIC_URL+ '/resume.pdf'}>resume</a></li>
               </ul>
             </div>
           </header>
