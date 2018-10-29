@@ -46,10 +46,10 @@ class App extends Component {
             <div className="header-wrapper">
               <h1>Jonathan Derin</h1>
               <ul className="contact">
-                <li><a href="mailto:info@jonathanderin.de">info@jonathanderin.de</a></li>
-                <li><a href="https://github.com/bbrinx">github</a></li>
-                <li><a href="https://www.linkedin.com/in/jonathan-derin">linkedin</a></li>
-                <li><a href={process.env.PUBLIC_URL+ '/resume.pdf'}>resume</a></li>
+                <li><a href="mailto:info@jonathanderin.de" target="_blank" rel="noopener noreferrer">info@jonathanderin.de</a></li>
+                <li><a href="https://github.com/bbrinx" target="_blank" rel="noopener noreferrer">github</a></li>
+                <li><a href="https://www.linkedin.com/in/jonathan-derin" target="_blank" rel="noopener noreferrer">linkedin</a></li>
+                <li><a href={process.env.PUBLIC_URL+ '/resume.pdf#zoom=50'} target="_blank" rel="noopener noreferrer">resume</a></li>
               </ul>
             </div>
           </header>
