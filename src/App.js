@@ -203,7 +203,7 @@ class App extends Component {
                     </div>
                     <div className="reference">
                       <p ref={this.projects2} className="number">[2]</p>
-                      <a href="%PUBLIC_URL%/resume.pdf" target="_blank" rel="noopener noreferrer">
+                      <a href={process.env.PUBLIC_URL+ '/thesis.pdf'} target="_blank" rel="noopener noreferrer">
                         <p>
                           April 2018 - Aug 2018 <br/>
                           <span className="title">Textual Analysis of German Online Media</span><br/>
