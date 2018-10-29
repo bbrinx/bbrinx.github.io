@@ -87,7 +87,7 @@ class App extends Component {
                     a computer science major with focus on image processing and web development. 
                     While studying I was <span className="tldr">awarded with the Deutschland Stipendium</span>, a scholarship for high-achieving students <span onClick={() => {this.scroll(this.bio3)}} className="footnote">[3]</span>. 
                     As part of the program, we could complete an internship abroad. 
-                    I decided to use this oportunity to live in Mexico for six months. 
+                    I decided to use this opportunity to live in Mexico for six months. 
                   </p>
                   <p>
                     From March until August 2017 I worked as a <span className="tldr">full stack development intern at Decidata</span>, a marketing startup <span className="tldr">in Mexico City </span><span onClick={() => {this.scroll(this.bio4)}} className="footnote">[4]</span>. 
@@ -180,7 +180,7 @@ class App extends Component {
                   </p>
                   <p>
                     After I finished school I finally got to work on a few projects I have had in mind for a while. 
-                    This resulted in a small <span className="tldr">news reader</span>, called simple newsfeed, built with <span className="tldr">React.js and Node.js</span> <span onClick={() => {this.scroll(this.projects3)}} className="footnote">[3]</span>. 
+                    This resulted in a small <span className="tldr">newsreader</span>, called simple newsfeed, built with <span className="tldr">React.js and Node.js</span> <span onClick={() => {this.scroll(this.projects3)}} className="footnote">[3]</span>. 
                     The idea behind it was to build a simple and clean rss reader that would declutter my morning news routine (and help me avoid badly designed websites).
                   </p>
                 </div>
@@ -203,7 +203,7 @@ class App extends Component {
                     </div>
                     <div className="reference">
                       <p ref={this.projects2} className="number">[2]</p>
-                      <a href="" target="_blank" rel="noopener noreferrer">
+                      <a href="%PUBLIC_URL%/resume.pdf" target="_blank" rel="noopener noreferrer">
                         <p>
                           April 2018 - Aug 2018 <br/>
                           <span className="title">Textual Analysis of German Online Media</span><br/>
