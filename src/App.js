@@ -5,6 +5,7 @@ import ReactGA from 'react-ga';
 import 'normalize.css';
 import './App.scss';
 
+ReactGA.initialize('UA-88626373-1');
 
 class App extends Component {
   constructor() {
@@ -21,21 +22,69 @@ class App extends Component {
     this.projects1 = React.createRef();
     this.projects2 = React.createRef();
     this.projects3 = React.createRef();
-  }
 
-  initializeReactGA() {
-    ReactGA.initialize('UA-88626373-1');
     ReactGA.pageview('/homepage');
   }
 
   tldr() {
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked TL;DR'
+    })
     this.setState({tldr: !this.state.tldr})
   }
 
 
   scroll(ref) {
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked Reference'
+    })
     smoothscroll.polyfill();
     window.scrollBy({top: ref.current.offsetTop - 120, left: 0, behavior: 'smooth'})
+  }
+
+  clickedEmail() {
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked Email'
+    })
+  }
+  clickedGithub() {
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked Github'
+    })
+  }
+  clickedLinkedIn() {
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked LinkedIn'
+    })
+  }
+  clickedResume() {
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked Resume'
+    })
+  }
+  clickedMapper() {
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked Mapper'
+    })
+  }
+  clickedThesis() {
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked Thesis'
+    })
+  }
+  clickedNewsfeed() {
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked Newsfeed'
+    })
   }
 
   render() {
@@ -46,10 +95,10 @@ class App extends Component {
             <div className="header-wrapper">
               <h1>Jonathan Derin</h1>
               <ul className="contact">
-                <li><a href="mailto:info@jonathanderin.de" target="_blank" rel="noopener noreferrer">info@jonathanderin.de</a></li>
-                <li><a href="https://github.com/bbrinx" target="_blank" rel="noopener noreferrer">github</a></li>
-                <li><a href="https://www.linkedin.com/in/jonathan-derin" target="_blank" rel="noopener noreferrer">linkedin</a></li>
-                <li><a href={process.env.PUBLIC_URL+ '/resume.pdf#zoom=50'} target="_blank" rel="noopener noreferrer">resume</a></li>
+                <li onClick={() => {this.clickedEmail()}}><a href="mailto:info@jonathanderin.de">info@jonathanderin.de</a></li>
+                <li onClick={() => {this.clickedGithub()}}><a href="https://github.com/bbrinx" target="_blank" rel="noopener noreferrer">github</a></li>
+                <li onClick={() => {this.clickedLinkedIn()}}><a href="https://www.linkedin.com/in/jonathan-derin" target="_blank" rel="noopener noreferrer">linkedin</a></li>
+                <li onClick={() => {this.clickedResume()}}><a href={process.env.PUBLIC_URL+ '/resume.pdf#zoom=50'} target="_blank" rel="noopener noreferrer">resume</a></li>
               </ul>
             </div>
           </header>
@@ -194,7 +243,7 @@ class App extends Component {
                   <div className="references">
                     <div className="reference">
                       <p ref={this.projects1} className="number">[1]</p>
-                      <a href="https://github.com/bbrinx/cm.bp.htw-mapper" target="_blank" rel="noopener noreferrer">
+                      <a onClick={() => {this.clickedMapper()}} href="https://github.com/bbrinx/cm.bp.htw-mapper" target="_blank" rel="noopener noreferrer">
                         <p>
                           Oct 2017 - Mar 2018 <br/>
                           <span className="title">HTW Mapper</span><br/>
@@ -204,7 +253,7 @@ class App extends Component {
                     </div>
                     <div className="reference">
                       <p ref={this.projects2} className="number">[2]</p>
-                      <a href={process.env.PUBLIC_URL+ '/thesis.pdf'} target="_blank" rel="noopener noreferrer">
+                      <a onClick={() => {this.clickedThesis()}} href={process.env.PUBLIC_URL+ '/thesis.pdf'} target="_blank" rel="noopener noreferrer">
                         <p>
                           April 2018 - Aug 2018 <br/>
                           <span className="title">Textual Analysis of German Online Media</span><br/>
@@ -214,7 +263,7 @@ class App extends Component {
                     </div>
                     <div className="reference">
                       <p ref={this.projects3} className="number">[3]</p>
-                      <a href="https://github.com/bbrinx/newsfeed" target="_blank" rel="noopener noreferrer">
+                      <a onClick={() => {this.clickedNewsfeed()}} href="https://github.com/bbrinx/newsfeed" target="_blank" rel="noopener noreferrer">
                         <p>
                           Oct 2018 - present<br/>
                           <span className="title">Simple Newsfeed</span><br/>

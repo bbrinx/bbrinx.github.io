@@ -226,6 +226,7 @@ p {
         }
       }
       .ref {
+        margin-top: calc(-5em - 30px);
         .header {
           h3 {
             color: $color1;
@@ -366,8 +367,16 @@ p {
     .App-header {
       .header-wrapper {
         flex-direction: column;
+        width: 100%;
         h1 {
           margin-bottom: 1em;
+        }
+        .contact {
+          width: 100%;
+          justify-content: space-between;
+          li {
+            padding-right: 0;
+          }
         }
       }
     }
