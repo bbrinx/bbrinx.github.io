@@ -129,14 +129,14 @@ class App extends Component {
               <div className="bio-text">
                 <div className={`text ${this.state.tldr ? 'hidden' : ''}`}>
                   <p>
-                    Born in the south of Germany as a German-American, I graduated school and decided to study computer science.
+                    Born in the south of Germany as a German-American, I graduated from school and decided to study computer science.
                     To be sure I was on the right path, I completed an <span className="tldr">internship</span> as a <span className="tldr">web developer</span> <span onClick={() => {this.scroll(this.bio1)}} className="footnote">[1]</span>. 
-                    I created websites and Wordpress templates for clients and optimized existing websites for improved <span className="tldr">usability, design and SEO</span>.
+                    I created websites and Wordpress templates for clients and optimized existing websites for improved <span className="tldr">usability, design, and SEO</span>.
                   </p>
                   <p>
                     In October 2015 I moved to Berlin to <span className="tldr">study international media and computing</span> <span onClick={() => {this.scroll(this.bio2)}} className="footnote">[2]</span>, 
-                    a computer science major with focus on image processing and web development. 
-                    While studying I was <span className="tldr">awarded with the Deutschland Stipendium</span>, a scholarship for high-achieving students <span onClick={() => {this.scroll(this.bio3)}} className="footnote">[3]</span>. 
+                    a computer science major with a focus on image processing and web development. 
+                    While studying I was <span className="tldr">awarded the Deutschland Stipendium</span>, a scholarship for high-achieving students <span onClick={() => {this.scroll(this.bio3)}} className="footnote">[3]</span>. 
                     As part of the program, we could complete an internship abroad. 
                     I decided to use this opportunity to live in Mexico for six months. 
                   </p>
@@ -144,12 +144,12 @@ class App extends Component {
                     From March until August 2017 I worked as a <span className="tldr">full stack development intern at Decidata</span>, a marketing startup <span className="tldr">in Mexico City </span><span onClick={() => {this.scroll(this.bio4)}} className="footnote">[4]</span>. 
                     As part of the development team I built a new application using <span className="tldr">Python, Django and Javascript</span> The application would let advertisers trigger their online campaigns based on the weather.
                     I implemented automated <span className="tldr">python unit tests</span> and <span className="tldr">refactored</span> parts of the <span className="tldr">code</span>.
-                    For the last months I worked on a new version of the platform. I was responsible for <span className="tldr">implementing React</span> as a frontend framework to a Django backend and <span className="tldr">changed the database structure</span>.
+                    For the last months, I worked on a new version of the platform. I was responsible for <span className="tldr">implementing React</span> as a frontend framework to a Django backend and <span className="tldr">changed the database structure</span>.
                   </p>
                   <p>
-                    During my last two semesters I worked as a <span className="tldr">full stack developer</span> at the <span className="tldr">Berlin</span> startup <span className="tldr">Foodly</span> <span onClick={() => {this.scroll(this.bio5)}} className="footnote">[5]</span>. 
+                    During my last two semesters, I worked as a <span className="tldr">full stack developer</span> at the <span className="tldr">Berlin</span> startup <span className="tldr">Foodly</span> <span onClick={() => {this.scroll(this.bio5)}} className="footnote">[5]</span>. 
                     There I was responsible for building Foodly’s web application with <span className="tldr">Meteor, React, Node.js and MongoDB</span>. 
-                    I implemented new featueres and prototyped an iOS mobile app version using <span className="tldr">React Native</span>.
+                    I implemented new features and prototyped an iOS mobile app version using <span className="tldr">React Native</span>.
                   </p>
                   <p>
                     I <span className="tldr">graduated university in 2018</span> with the highest honors, obtaining a <span className="tldr">Bachelor of Science</span>. 
