@@ -219,7 +219,7 @@ p {
       .bio-text {
         width: $width-left;
         .text {
-          height: 800px;
+          height: 830px;
           .footnote {
             color: $color1;
           }
@@ -252,7 +252,7 @@ p {
       .projects-text {
         width: $width-left;
         .text {
-          height: 450px;
+          height: 550px;
           .footnote {
             color: $color2;
           }
@@ -323,6 +323,9 @@ p {
         .bio-text {
           width: unset;
         }
+        .ref {
+          margin-top: 0;
+        }
       }
       .projects {
         flex-direction: column;
@@ -388,6 +391,9 @@ p {
         flex-direction: column;
         .bio-text {
           width: unset;
+        }
+        .ref {
+          margin-top: 0;
         }
       }
       .projects {
