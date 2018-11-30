@@ -9,8 +9,8 @@ $color-bg: #fff;
 $black: #222;
 $color1: #000DC6;
 $color2: #E80052;
-$width-left: 58%;
-$width-right: 42%;
+$width-left: 75%;
+$width-right: 25%;
 $font-mono: 'Roboto Mono', monospace;
 $font-sans: 'Roboto', sans-serif;
 
@@ -63,8 +63,7 @@ a {
   color: inherit;
 }
 p {
-  margin: 1.5em 0;
-  letter-spacing: 0.15em;
+  margin: 0 0 1.5em 0;
 }
 
 .mobile {
@@ -92,6 +91,14 @@ p {
       align-items: baseline;
       justify-content: space-between;
       width: $width-left;
+      .title {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        h1 {
+          margin-right: 1em;
+        }
+      }
       .contact {
         display: flex;
         flex-direction: row;
@@ -117,8 +124,6 @@ p {
       height: 30px;
       align-items: flex-end;
       width: $width-left;
-      position: sticky;
-      position: -webkit-sticky;
       top: 0;
       background-color: $color-bg;
       z-index: 100;
@@ -139,6 +144,7 @@ p {
       column-gap: 3em;
       column-fill: auto;
       p {
+        transition: all 1s;
         white-space: pre-line;
         text-align: justify;
         word-wrap: break-word;
@@ -146,11 +152,7 @@ p {
         hyphens: auto;
         line-height: 1.5em;
         opacity: 1;
-        transition: color 0.5s ease-in;
-        &::before {
-          content: '> ';
-          font-weight: 900;
-        }
+        // transition: color 0.5s ease-in;
         &:first-child {
           margin-top: 0;
         }
@@ -181,11 +183,13 @@ p {
         justify-content: space-between;
         .reference {
           padding-right: 1em;
-          display: flex;
-          width: 48%;
+          width: 100%;
           margin-bottom: 1em;
           &:nth-child(even) {
             padding-right: 0;
+          }
+          a {
+            display: flex;
           }
           p {
             font-family: $font-mono;
@@ -204,13 +208,33 @@ p {
         }
       }
     }
+    .hide {
+      overflow: hidden; /* Ensures the content is not revealed until the animation */
+      margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    }
+    .tldr {
+      background: linear-gradient(to right, rgb(255, 149, 0) 50%, #fff 50%);
+      background-position: right bottom;
+      transition: all 0.5s ease;
+      background-size: 200% 100%;
+    }
     .hidden {
+      .hide {
+        animation: typing 3.5s steps(40, end);
+        animation-fill-mode: forwards;
+      }
       p, span {
-        color: rgb(216, 216, 216) !important;
+        // color: rgb(216, 216, 216) !important;
         .tldr {
+          transition: all 0.5s ease;
           color: #000 !important;
+          background-position: left bottom;
         }
       }
+    }
+    @keyframes typing {
+      from { width: 0% }
+      to { width: 100% }
     }
     .bio{
       display: flex;
@@ -219,7 +243,10 @@ p {
       .bio-text {
         width: $width-left;
         .text {
-          height: 830px;
+          p {
+            margin: 0;
+            padding: 0 0 1em 0;
+          }
           .footnote {
             color: $color1;
           }
@@ -251,26 +278,57 @@ p {
       padding-bottom: 3em;
       .projects-text {
         width: $width-left;
-        .text {
-          height: 550px;
-          .footnote {
-            color: $color2;
+        .projects-wrapper {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .project {
+            width: 28%;
+            padding: 1em;
+            border: 1px dashed #222;
+            .heading {
+              margin-bottom: 0.5em;
+            }
+            .tools {
+              font-family: $font-mono;
+              font-size: 0.8em;
+              &:before {
+                content: '['
+              }
+              &:after {
+                content: ']'
+              }
+            }
+            p {
+              text-align: justify;
+            }
           }
         }
       }
-      .ref {
-        .header {
-          h3 {
-            color: $color2;
+      .skills-wrapper {
+        display: flex; 
+        flex-direction: column;
+        padding-left: 5em;
+        height: 100%;
+        .skills {
+          flex-grow: 1;
+          padding: 1em;
+          border: 1px dashed #222;
+          h5 {
+            text-transform: uppercase;
+            margin-bottom: 1em;
+            &:first-child {
+              margin-top: 0;
+            }
           }
-        }
-        .reference {
-          a, p {
-            color: $color2;
-            text-decoration: none;
-          }
-          a:hover {
-            text-decoration: underline;
+          .reference {
+            a, p {
+              color: $color2;
+              text-decoration: none;
+            }
+            a:hover {
+              text-decoration: underline;
+            }
           }
         }
       }
@@ -309,8 +367,11 @@ p {
       .header-wrapper {
         padding: 1em 0;
         flex-direction: column;
-        h1 {
-          margin-bottom: 1em;
+        .title {
+          flex-direction: row;
+          h1 {
+            margin-bottom: 1em;
+          }
         }
       }
     }
@@ -329,10 +390,20 @@ p {
       }
       .projects {
         flex-direction: column;
+        .skills-wrapper {
+          padding: unset;
+        }
         .projects-text {
           width: unset;
           .header {
             width: 50%;
+          }
+          .projects-wrapper {
+            flex-direction: column;
+            .project {
+              width: unset;
+              margin-bottom: 1em;
+            }
           }
         }
       }
@@ -371,8 +442,11 @@ p {
       .header-wrapper {
         flex-direction: column;
         width: 100%;
-        h1 {
-          margin-bottom: 1em;
+        .title {
+          flex-direction: row;
+          h1 {
+            margin-bottom: 1em;
+          }
         }
         .contact {
           width: 100%;
@@ -398,10 +472,20 @@ p {
       }
       .projects {
         flex-direction: column;
+        .skills-wrapper {
+          padding: unset;
+        }
         .projects-text {
           width: unset;
           .header {
             width: 50%;
+          }
+          .projects-wrapper {
+            flex-direction: column;
+            .project {
+              width: unset;
+              margin-bottom: 1em;
+            }
           }
         }
       }
