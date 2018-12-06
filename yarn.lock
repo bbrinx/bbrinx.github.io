@@ -8044,6 +8044,13 @@ react-scripts@2.0.5:
   optionalDependencies:
     fsevents "1.2.4"
 
+react-string-replace@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-string-replace/-/react-string-replace-0.4.1.tgz#024c6ac0a91163ecae439a1b197d3e1660c98c0d"
+  integrity sha512-N7uIDFw1aPb2rjN/8aAfdSeBTNUAOAps3FN/bLplGM6k8YN2FYm6pXXg+/gGk3J3mDz76H+HNEwZSJGeSw9C8Q==
+  dependencies:
+    lodash "^4.17.4"
+
 react-switch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-switch/-/react-switch-3.0.4.tgz#52958b2736b4d21b4f0050997955c5365019ca7b"

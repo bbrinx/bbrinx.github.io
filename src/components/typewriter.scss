@@ -1,0 +1,52 @@
+$red: #e35d45;
+
+.typewriter-wrapper {
+    font-size: 42px;
+    transition: all 0.5s;
+    .typewriter {
+        font-weight: 600;
+        white-space: pre-line;
+        // border-right: 2px solid #222;
+        // animation: blink-cursor 1s step-end infinite;
+        // &:after {
+        //     content: '_';
+        //     position: relative;
+        //     margin-left: 0;
+        //     animation: blink_underline 1s step-end infinite;
+        //     font-weight: 300;
+        // }
+        &.typing {
+            animation: none;
+            // &:after {
+            //     animation: none;
+            // }
+        }
+        .highlight {
+            width: calc(100%);
+            background-image: linear-gradient(transparent calc(100% - 5px), $red 5px);
+            background-repeat: no-repeat;
+            background-size: 0% 100%;
+            animation: underline 1s;
+            animation-fill-mode: forwards;
+        }
+    }
+    .link {
+        color: $red;
+        background-image: linear-gradient(transparent calc(100% - 2px), $red 2px);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+}
+
+@keyframes blink_underline {
+    from, to { opacity: 0 }
+    50% { opacity: 1; }
+}
+@keyframes blink-cursor {
+    from, to { border-color: transparent }
+    50% { border-color: #222; }
+}
+@keyframes underline {
+    from { background-size: 0% 100%; }
+    to { background-size: 100% 100%; } 
+}

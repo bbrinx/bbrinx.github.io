@@ -1,0 +1,16 @@
+$color: rgba(198, 33, 104, 0.5);
+$width: 10px;
+
+
+.tldr {
+    width: calc(100%);
+    background-image: linear-gradient(transparent calc(100% - #{$width}), $color $width);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: background-size 1s;
+  }
+
+.active {
+    background-size: 100% 100%;
+}
+
