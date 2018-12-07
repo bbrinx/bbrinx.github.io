@@ -88,7 +88,9 @@ class Typewriter extends Component {
     if(this.props.animate) {
       this.setState({typewriter: this.texts.find(_ => _.id === this.props.id), typing: true}, () => this.type())
     } else {
-      this.setState({display: this.texts.find(_ => _.id === this.props.id).text.replace(/(\*)/g, '\n'), finnished: true})
+      this.setState({typewriter: this.texts.find(_ => _.id === this.props.id)}, () => {
+        this.setState({display: this.state.typewriter.text.replace(/(\*)/g, '\n'), finished: true})
+      })
     }
   }
 
@@ -97,6 +99,8 @@ class Typewriter extends Component {
   }
 
   componentDidUpdate() {
+    console.log('finished ' + this.state.finished)
+    console.log('link ' + this.state.typewriter.link)
     if(this.text2 && this.text2.current) {
       this.text2.current.style.display = 'none'
       const a = this.text2.current.offsetHeight
