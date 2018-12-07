@@ -19,9 +19,8 @@ class App extends Component {
 
     ReactGA.pageview('/homepage')
     
-    this.text = React.createRef();
-    this.resume = React.createRef();
-    this.projects = React.createRef();
+    this.resume = React.createRef()
+    this.projects = React.createRef()
   }
 
   tldr() {
@@ -37,7 +36,7 @@ class App extends Component {
       category: 'User',
       action: 'Clicked Reference'
     })
-    smoothscroll.polyfill();
+    smoothscroll.polyfill()
     window.scrollTo({top: ref.current.offsetTop, left: 0, behavior: 'smooth'})
   }
 
@@ -92,7 +91,8 @@ class App extends Component {
 
   handleClick = (typewriter) => {
     this.switchTypewriter(typewriter)
-    this.scroll(this.text)
+    smoothscroll.polyfill()
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
   } 
 
   render() {
@@ -106,10 +106,14 @@ class App extends Component {
                 <h3>Full-Stack Developer</h3>
               </div>
               <ul className="contact">
-                <li className="link" onClick={() => {this.clickedEmail()}}><a href="mailto:info@jonathanderin.de">info@jonathanderin.de</a></li>
-                <li className="link" onClick={() => {this.clickedGithub()}}><a href="https://github.com/bbrinx" target="_blank" rel="noopener noreferrer">github</a></li>
-                <li className="link" onClick={() => {this.clickedLinkedIn()}}><a href="https://www.linkedin.com/in/jonathan-derin" target="_blank" rel="noopener noreferrer">linkedin</a></li>
-                <li className="link" onClick={() => {this.clickedResume()}}><a href={process.env.PUBLIC_URL+ '/resume.pdf#zoom=50'} target="_blank" rel="noopener noreferrer">resume</a></li>
+                <li title="email" className="mobile email" onClick={() => {this.clickedEmail()}}><a href="mailto:info@jonathanderin.de"></a></li>
+                <li title="email" className="link" onClick={() => {this.clickedEmail()}}><a href="mailto:info@jonathanderin.de">info@jonathanderin.de</a></li>
+                <li title="github" className="mobile github" onClick={() => {this.clickedEmail()}}><a href="mailto:info@jonathanderin.de"></a></li>
+                <li title="github" className="link" onClick={() => {this.clickedGithub()}}><a href="https://github.com/bbrinx" target="_blank" rel="noopener noreferrer">github</a></li>
+                <li title="linkedin" className="mobile linkedin" onClick={() => {this.clickedEmail()}}><a href="mailto:info@jonathanderin.de"></a></li>
+                <li title="linkedin" className="link" onClick={() => {this.clickedLinkedIn()}}><a href="https://www.linkedin.com/in/jonathan-derin" target="_blank" rel="noopener noreferrer">linkedin</a></li>
+                <li title="resume" className="mobile resume" onClick={() => {this.clickedEmail()}}><a href="mailto:info@jonathanderin.de"></a></li>
+                <li title="resume" className="link" onClick={() => {this.clickedResume()}}><a href={process.env.PUBLIC_URL+ '/resume.pdf#zoom=50'} target="_blank" rel="noopener noreferrer">resume</a></li>
               </ul>
             </div>
           </header>
@@ -128,7 +132,7 @@ class App extends Component {
               </ul>
             </div>
 
-            <References func={this.switchTypewriter} />
+            <References resumeRef={this.resume} projectsRef={this.projects} setTypewriter={this.handleClick} />
 
           </main>
         </div>

@@ -11,6 +11,9 @@ class Typewriter extends Component {
       typewriter: {},
       finished: false,
     }
+    this.text1 = React.createRef()
+    this.text2 = React.createRef()
+    this.text3 = React.createRef()
   }
 
   texts=[{
@@ -26,7 +29,7 @@ class Typewriter extends Component {
   }, {
     id: 3,
     ref: 'scholarship',
-    text: 'While studying I was awarded the Deutschland Stipendium,* a scholarship for high-achieving students.',
+    text: 'While studying, I was awarded the Deutschland Stipendium,* a scholarship for high-achieving students.',
     link: 'https://www.deutschlandstipendium.de',
   }, {
     id: 4,
@@ -36,7 +39,7 @@ class Typewriter extends Component {
   }, {
     id: 5,
     ref: 'foodly',
-    text: 'At Foodly I was responsible for building their web application with Meteor, React, Node.js and MongoDB. I implemented new features and prototyped an iOS mobile app version using React Native.',
+    text: 'At Foodly I was responsible for building their web application with Meteor, React, Node.js and MongoDB.* I implemented new features and prototyped an iOS mobile app version using React Native.',
     link: 'https://www.getfoodly.com',
   }, {
     id: 6,
@@ -69,36 +72,23 @@ class Typewriter extends Component {
       new Promise(resolve => setTimeout(resolve, this.speed, letter))
       .then(letter => !this.isUnmounted && this.setState({ display: this.state.display + letter }))  
     
-    const typeRow = () => 
-      new Promise(resolve => setTimeout(resolve, this.speed*10))
+    const typeRow = () => {
+      !this.isUnmounted && this.setState({typing: false})
+      return new Promise(resolve => setTimeout(resolve, this.speed*10))
       .then(!this.isUnmounted && this.setState({ display: this.state.display + '\n'}))  
+    }
 
     for (const letter of this.state.typewriter.text) {
       letter === '*' ? await typeRow() : await typeLetter(letter)
     }
     !this.isUnmounted && this.setState({typing: false, finished: true})
-
-    // for (const [index, row] of this.props.texts.entries()) {
-    //   !this.isUnmounted && this.setState({typing: true})
-    //   console.log(row)
-    //   for (const letter of row) {
-    //     await typeLetter(letter)
-    //   }
-    //   if(this.props.texts[index+1]) {
-    //     !this.isUnmounted && this.setState({typing: false})
-    //     await typeRow()
-    //   } else {
-        
-    //     !this.isUnmounted && this.setState({typing: false})
-    //   }
-    // }
   } 
 
   componentDidMount() {
     if(this.props.animate) {
       this.setState({typewriter: this.texts.find(_ => _.id === this.props.id), typing: true}, () => this.type())
     } else {
-      this.setState({display: this.texts.find(_ => _.id === this.props.id).text.replace(/(\*)/g, '\n')})
+      this.setState({display: this.texts.find(_ => _.id === this.props.id).text.replace(/(\*)/g, '\n'), finnished: true})
     }
   }
 
@@ -106,16 +96,24 @@ class Typewriter extends Component {
     this.isUnmounted = true;
   }
 
+  componentDidUpdate() {
+    if(this.text2 && this.text2.current) {
+      this.text2.current.style.display = 'none'
+      const a = this.text2.current.offsetHeight
+      this.text2.current.style.display = 'unset'
+    }
+  }
+
   render() {
     const regex = /(usability, design, and SEO|Deutschland Stipendium|Python, Django, and Javascript|Natural Language Processing|Meteor, React, Node.js and MongoDB|React Native|computer science major)/g
     return (
-      <div className="typewriter-wrapper">
+      <div className="typewriter-wrapper" ref={this.text3}>
         <p
-          className={`typewriter ${this.state.typing ? 'typing' : ''}`}>
+          className={`typewriter ${this.state.typing ? 'typing' : ''}`} ref={this.text1}>
           {reactStringReplace(this.state.display, regex, (match, i) => (
             <span className="highlight" key={i}>{match}</span>
           ))}
-          _
+          <span className="cursor" ref={this.text2}>_</span>
         </p>
         {this.state.typewriter.link && this.state.finished? 
           <div className="fade-in-fwd">

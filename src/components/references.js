@@ -61,7 +61,7 @@ class References extends Component {
 
   handleClick = (id) => {
     this.setState({activeIndex: id})
-    this.props.func(id)
+    this.props.setTypewriter(id)
   }
 
   render() {
@@ -71,7 +71,7 @@ class References extends Component {
           <div className="header">
             <h3>Resumé</h3>
           </div>
-          <div className="references resume">
+          <div className="references resume" ref={this.props.resumeRef}>
             {this.references.map((ref, id) => (
               <Reference key={id} reference={ref} func={this.handleClick} active={this.state.activeIndex === ref.id}/>
             ))}
@@ -81,7 +81,7 @@ class References extends Component {
           <div className="header">
             <h3>Projects</h3>
           </div>
-          <div className="references projects">
+          <div className="references projects" ref={this.props.projectsRef}>
             {this.projects.map((ref, id) => (
               <Reference key={id} reference={ref} func={this.handleClick} active={this.state.activeIndex === ref.id}/>
             ))}

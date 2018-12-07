@@ -122,6 +122,9 @@ p {
             padding-right: 0;
           }
         }
+        .mobile {
+          padding: 0;
+        }
       }
     }
   }
@@ -245,24 +248,29 @@ p {
       height: 100%;
       flex-direction: column;
       .text-wrapper {
+        flex: unset;
         min-height: 50%;
+        margin-bottom: 5em;
       }
       .sidebar {
         flex-direction: column;
         .sidebar-col {
           width: unset;
+          &.resume-wrapper {
+            margin-bottom: 3em;
+            .resume {
+              &:after {
+                content: '';
+                flex: auto;
+              }
+            }
+          }
           .references {
             .reference {
               width: unset;
               width: calc(100% / 3);
               margin: 0;
               padding: 0;
-            }
-            &.resume {
-              &:after {
-                content: '';
-                flex: auto;
-              }
             }
           }
         }
@@ -288,16 +296,42 @@ p {
         flex-direction: column;
         width: 100%;
         .title {
-          flex-direction: row;
+          flex-direction: column;
+          margin-bottom: 2em;
           h1 {
-            margin-bottom: 1em;
+            margin: 0;
           }
         }
         .contact {
           width: 100%;
-          justify-content: space-between;
+          justify-content: space-around;
+          flex-direction: row;
+          align-items: center;
           li {
-            padding-right: 0;
+            padding: 0.2em 0;
+            display: none;
+          }
+          .mobile {
+            display: inline-block;
+            height: 50px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center; 
+            flex: 1;
+            height: 2em;
+            &.email {
+              background-image: url('./img/email.png');
+              height: 1.5em;
+            }
+            &.github {
+              background-image: url('./img/github.png');
+            }
+            &.linkedin {
+              background-image: url('./img/linkedin.png');
+            }
+            &.resume {
+              background-image: url('./img/resume.png');
+            }
           }
         }
       }
@@ -306,9 +340,10 @@ p {
       height: 100%;
       flex-direction: column;
       .text-wrapper {
-        flex: 3;
+        flex: unset;
+        margin-bottom: 5em;
         .text {
-          margin: 5em 0;
+          margin: 0;
         }
       }
       .mobileNav {
@@ -334,6 +369,9 @@ p {
         flex-direction: column;
         .sidebar-col {
           width: unset;
+          &.resume-wrapper {
+            margin-bottom: 3em;
+          }
           .references {
             .reference {
               width: unset;
@@ -353,4 +391,6 @@ p {
 
 * {
   box-sizing: border-box;
+  transform: translateZ(0);
+  transform: translate3d(1, 1, 1);
 }
