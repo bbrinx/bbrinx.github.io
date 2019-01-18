@@ -311,15 +311,19 @@ p {
             padding: 0.2em 0;
             display: none;
           }
-          .mobile, .mobile a {
+          .mobile {
             display: inline-block;
             height: 50px;
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center; 
             flex: 1;
             height: 2em;
-            width: 100%;
+            a {
+              display: inline-block;
+              height: 100%;
+              width: 100%;
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-position: center; 
+            }
             &.email a{
               background-image: url('./img/email.png');
               height: 1.5em;
