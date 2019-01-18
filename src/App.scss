@@ -311,7 +311,7 @@ p {
             padding: 0.2em 0;
             display: none;
           }
-          .mobile {
+          .mobile, .mobile a {
             display: inline-block;
             height: 50px;
             background-repeat: no-repeat;
@@ -319,17 +319,18 @@ p {
             background-position: center; 
             flex: 1;
             height: 2em;
-            &.email {
+            width: 100%;
+            &.email a{
               background-image: url('./img/email.png');
               height: 1.5em;
             }
-            &.github {
+            &.github a{
               background-image: url('./img/github.png');
             }
-            &.linkedin {
+            &.linkedin a{
               background-image: url('./img/linkedin.png');
             }
-            &.resume {
+            &.resume a{
               background-image: url('./img/resume.png');
             }
           }

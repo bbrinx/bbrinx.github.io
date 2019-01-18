@@ -54,7 +54,7 @@ class Typewriter extends Component {
   }, {
     id: 8,
     ref: 'newsfeed',
-    text: 'The idea behind this newsreader was to build a simple and clean rss reader for my morning news routine *(and help me avoid badly designed websites).',
+    text: 'The idea behind this newsreader was to build a simple and clean rss reader for my morning news routine *(and help me avoid poorly designed websites).',
     link: 'https://github.com/bbrinx/newsfeed',
   }, {
     id: 0,
@@ -99,8 +99,6 @@ class Typewriter extends Component {
   }
 
   componentDidUpdate() {
-    console.log('finished ' + this.state.finished)
-    console.log('link ' + this.state.typewriter.link)
     if(this.text2 && this.text2.current) {
       this.text2.current.style.display = 'none'
       const a = this.text2.current.offsetHeight
