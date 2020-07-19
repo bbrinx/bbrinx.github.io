@@ -5,15 +5,15 @@
   "main": "index.js",
   "homepage": "http://www.jonathanderin.de/",
   "dependencies": {
-    "gh-pages": "^2.0.1",
+    "gh-pages": "^3.1.0",
     "node-sass": "^4.9.4",
     "normalize.css": "^8.0.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-ga": "^2.5.3",
-    "react-scripts": "2.0.5",
+    "react-ga": "^3.1.2",
+    "react-scripts": "3.4.1",
     "react-string-replace": "^0.4.1",
-    "react-switch": "^3.0.4",
+    "react-switch": "^5.0.1",
     "smoothscroll-polyfill": "^0.4.3"
   },
   "scripts": {
